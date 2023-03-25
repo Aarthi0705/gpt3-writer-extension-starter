@@ -55,7 +55,7 @@ const generateCompletionAction = async (info) => {
         sendMessage('generating...');
       const { selectionText } = info;
       const basePromptPrefix = `
-      Write me a detailed table of contents for a blog post with the title below.
+      Write me an interesting story with the title below.
   
       Title:
       `;
@@ -63,8 +63,8 @@ const generateCompletionAction = async (info) => {
 
     // Let's see what we get!
      const secondPrompt = `
-      Take the table of contents and title of the blog post below and generate a blog post written in thwe style of Paul Graham. Make it feel like a story. Don't just list the points. Go deep into each one. Explain why.
-      
+      Take the table of contents and title of the story below and generate a story written in the style of Adam silvera. Make it feel like a happy story that enlightens the mood and feel good one
+
       Title: ${selectionText}
       
       Table of Contents: ${baseCompletion.text}
@@ -85,7 +85,7 @@ const generateCompletionAction = async (info) => {
 chrome.runtime.onInstalled.addListener(() => {
     chrome.contextMenus.create({
       id: 'context-run',
-      title: 'Generate blog post',
+      title: 'Generate Story',
       contexts: ['selection'],
     });
   });
